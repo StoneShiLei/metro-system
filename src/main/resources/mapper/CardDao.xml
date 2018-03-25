@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hafuhafu.dao.ICardDao">
+
+    <select id="selectCard" resultMap="cardResultMap" parameterType="string">
+        SELECT * FROM card WHERE card_id = #{cardId}
+    </select>
+
+    <insert id="saveCard" parameterType="com.hafuhafu.model.Card">
+        INSERT INTO card(card_id,balance,card_type,card_status,card_start,card_end)
+        VALUES (#{cardId},#{balance},#{cardType},#{cardStatus},#{cardStart},#{cardEnd})
+    </insert>
+
+    <delete id="deleteCard" parameterType="com.hafuhafu.model.Card">
+        DELETE FROM card WHERE card_id = #{cardId}
+    </delete>
+
+    <update id="updateCard" parameterType="com.hafuhafu.model.Card">
+        UPDATE card
+        <set>
+            <if test="cardId != null">card_id = #{cardId},</if>
+            <if test="balance != null">balance = #{balance},</if>
+            <if test="cardType != null">card_type = #{cardType},</if>
+            <if test="cardStatus != null">card_status = #{cardStatus},</if>
+            <if test="cardStart != null">card_start = #{cardStart},</if>
+            <if test="cardEnd != null">card_end = #{cardEnd},</if>
+        </set>
+        WHERE card_id = #{cardId}
+    </update>
+
+    <resultMap id="cardResultMap" type="com.hafuhafu.model.Card">
+        <id column="card_id" property="cardId"/>
+        <result column="balance" property="balance"/>
+        <result column="card_type" property="cardType"/>
+        <result column="card_status" property="cardStatus"/>
+        <result column="card_start" property="cardStart"/>
+        <result column="card_end" property="cardEnd"/>
+    </resultMap>
+
+</mapper>
