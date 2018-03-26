@@ -142,9 +142,10 @@ public class CardBalanceServiceImpl implements ICardBalanceService {
     private BigDecimal calculate(Card card, Integer stations) {
         BigDecimal result = new BigDecimal(0);
         if (stations <= 5) {
-            result.add(new BigDecimal(1));
+            result = result.add(new BigDecimal(1));
         } else if (stations > 5 && stations <= 10) {
-            result.add(new BigDecimal(2));
+            System.out.println(new BigDecimal(2));
+            result = result.add(new BigDecimal(2));
         } else if (stations > 10) {
             double temp = 2 + Math.floor(stations / 5);
             result = new BigDecimal(temp);
@@ -152,6 +153,7 @@ public class CardBalanceServiceImpl implements ICardBalanceService {
 
 
         if (card.getCardType() == CardTypeEnum.NORMAL) {
+            System.out.println(result);
             return result;
         }
 
