@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="newCard">
+        <div>
             注册公交卡<br>
             <label>
                 <select v-model="cardType">
@@ -17,9 +18,12 @@
             </label>
             <button type="button" v-on:click="newCard">点击此处注册一张公交卡</button>
             <p>您的公交卡id为：{{ cardId }}</p>
+        </div>
+        <div>
             公交卡注销<br>
             注销公交卡：<label><input placeholder="公交卡id" type="text" v-model="destroyId"></label>
             <button type="button" v-on:click="destroyCard">确定</button>
+        </div>
     </div>
 </body>
 </html>
