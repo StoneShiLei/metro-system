@@ -34,6 +34,9 @@ window.onload = function () {
                     });
             },
             instation: function () {
+                if (this.start === '' || this.end === ''){
+                    alert("请先输入起点站和终点站")
+                }
                 axios.get('/in', {
                     params: {
                         cardId: this.cardId,
@@ -53,6 +56,9 @@ window.onload = function () {
                     });
             },
                 outstation : function () {
+                    if (this.start === '' || this.end === ''){
+                        alert("请先输入起点站和终点站")
+                    }
                     axios.get('/out', {
                         params: {
                             cardId:this.cardId,
