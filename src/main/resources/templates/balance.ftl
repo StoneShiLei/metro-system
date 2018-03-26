@@ -9,15 +9,14 @@
 </head>
 <body>
     <div id="balanceInquiry">
-        <div>
+
             余额查询<br>
             <label>
                 公交卡ID:<input  v-model="cardId" type="text"/>
                 <button type="button" v-on:click="getBalance">查询</button>
             </label>
             <p>余额为：{{ balance }}</p>
-        </div>
-        <div>
+
             公交卡储值<br>
             <label>
                 公交卡ID:<input v-model="rechargeId" type="text"/>
@@ -25,7 +24,6 @@
                 <button type="button" v-on:click="recharge">确认储值</button>
             </label>
             <p>充值后的余额为：{{ rechargeResult }}</p>
-        </div>
     </div>
 
 </body>
